@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="kind_array">
+        <item>Rouge</item>
+        <item>Blanc</item>
+        <item>Rosé</item>
+    </string-array>
+</resources>

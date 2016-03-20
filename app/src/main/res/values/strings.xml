@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">CaveVin</string>
+    <string name="add_wine">Ajouter vin</string>
+    <string name="del_wine">Supprimer vin</string>
+    <string name="save_wine">Enregistrer vin</string>
+    <string name="wine_name">Nom</string>
+    <string name="wine_info">Info</string>
+    <string name="choose_region">Choisissez région</string>
+    <string name="wine_year">Année</string>
+    <string name="wine_details">Details</string>
+    <string name="wine_maturation">Maturation</string>
+    <string name="wine_kind">Type</string>
+    <string name="wine_quantity">Quantité</string>
 </resources>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent" android:layout_height="wrap_content"
+    android:orientation="vertical" android:padding="6dip">
+
+
+
+
+
+    <TextView android:id="@+id/textName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="Nom: "
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+
+    <TextView android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/textName"
+        android:text=" "
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView android:id="@+id/textRegion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textName"
+        android:text="Region: "
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView android:id="@+id/region"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textRegion"
+        android:layout_alignBottom="@+id/textRegion"
+        android:layout_toRightOf="@+id/textRegion"
+        android:text=" "
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView android:id="@+id/textKind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textRegion"
+        android:text="Type: "
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView android:id="@+id/kind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textKind"
+        android:layout_alignBottom="@+id/textKind"
+        android:layout_toRightOf="@+id/textKind"
+        android:text=" "
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+
+    <TextView android:id="@+id/textYear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textKind"
+        android:text="Année: "
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView android:id="@+id/year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textYear"
+        android:layout_alignBottom="@+id/textYear"
+        android:layout_toRightOf="@+id/textYear"
+        android:text=" "
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+
+    <TextView android:id="@+id/textMaturation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textYear"
+        android:text="Maturation: "
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView android:id="@+id/maturation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textMaturation"
+        android:layout_alignBottom="@+id/textMaturation"
+        android:layout_toRightOf="@+id/textMaturation"
+        android:text=" "
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+
+
+
+
+
+
+</RelativeLayout>

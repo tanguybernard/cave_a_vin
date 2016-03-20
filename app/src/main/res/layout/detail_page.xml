@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="10dp">
+
+    <TextView android:id="@+id/textView1" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" android:text="@string/wine_info"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold" />
+
+
+
+    <TextView android:id="@+id/textName" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1" android:layout_marginTop="13dp"
+        android:text="@string/wine_name" android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText android:id="@+id/name" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_alignBottom="@+id/textName"
+        android:layout_toRightOf="@+id/textName" android:ems="30"
+        android:inputType="text" android:paddingLeft="10dp">
+
+        <requestFocus />
+    </EditText>
+
+    <TextView android:id="@+id/textQuantity" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textName" android:text="@string/wine_quantity"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginTop="10dp" />
+
+    <EditText android:id="@+id/quantity" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_alignBottom="@+id/textQuantity"
+        android:layout_toRightOf="@+id/textQuantity" android:ems="30"
+        android:inputType="text" android:paddingLeft="10dp" />
+
+
+    <TextView android:id="@+id/chooseRegion" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textQuantity" android:text="@string/choose_region"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginTop="10dp" />
+
+    <Spinner android:id="@+id/regionList" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_below="@+id/textQuantity"
+        android:layout_marginTop="10dp" android:layout_toRightOf="@id/chooseRegion" />
+
+
+    <TextView android:id="@+id/textKind" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_alignParentLeft="true"
+        android:layout_below="@+id/chooseRegion" android:layout_marginTop="13dp"
+        android:text="@string/wine_kind" android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Spinner android:id="@+id/kindList" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_below="@+id/chooseRegion"
+        android:layout_marginTop="10dp" android:layout_toRightOf="@id/textKind" />
+
+
+    <TextView android:id="@+id/textYear" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textKind" android:layout_marginTop="13dp"
+        android:text="@string/wine_year" android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText android:id="@+id/year" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_alignBottom="@+id/textYear"
+        android:layout_toRightOf="@+id/textYear" android:ems="30"
+        android:inputType="text" android:paddingLeft="10dp"/>
+
+
+    <TextView android:id="@+id/textMaturation" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textYear" android:layout_marginTop="13dp"
+        android:text="@string/wine_maturation" android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText android:id="@+id/maturation" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_alignBottom="@+id/textMaturation"
+        android:layout_toRightOf="@+id/textMaturation" android:ems="30"
+        android:inputType="text" android:paddingLeft="10dp"
+
+        />
+
+    <TextView android:id="@+id/textDetails" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textMaturation" android:layout_marginTop="13dp"
+        android:text="@string/wine_details" android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText android:id="@+id/details" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_alignBottom="@+id/textDetails"
+        android:layout_toRightOf="@+id/textDetails" android:ems="30"
+        android:inputType="text" android:paddingLeft="10dp"/>
+
+
+
+
+    <Button android:id="@+id/save" style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_alignParentRight="true" android:layout_below="@+id/details"
+        android:layout_marginRight="21dp" android:layout_marginTop="13dp"
+        android:text="@string/save_wine" />
+
+    <Button android:id="@+id/delete" style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/save" android:layout_alignBottom="@+id/save"
+        android:layout_toLeftOf="@+id/save" android:text="@string/del_wine" />
+
+</RelativeLayout>

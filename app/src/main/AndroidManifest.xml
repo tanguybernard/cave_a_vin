@@ -15,6 +15,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".WineEdit" android:label="@string/app_name" />
+
+        <provider android:name=".MyContentProvider" android:exported="true"
+            android:readPermission="true" android:writePermission="true"
+            android:authorities="istic.fr.cavevin.contentprovider" />
+
     </application>
 
 </manifest>
