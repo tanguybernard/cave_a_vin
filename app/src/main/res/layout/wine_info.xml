@@ -6,9 +6,6 @@
     >
 
 
-
-
-
     <TextView android:id="@+id/textName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -42,29 +39,12 @@
         android:text=" "
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <TextView android:id="@+id/textKind"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textRegion"
-        android:text="Type: "
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView android:id="@+id/kind"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textKind"
-        android:layout_alignBottom="@+id/textKind"
-        android:layout_toRightOf="@+id/textKind"
-        android:text=" "
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
 
     <TextView android:id="@+id/textYear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textKind"
+        android:layout_below="@+id/textRegion"
         android:text="Année: "
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -78,49 +58,43 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 
-    <TextView android:id="@+id/textMaturation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textYear"
-        android:text="Maturation: "
-        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <TextView android:id="@+id/maturation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textMaturation"
-        android:layout_alignBottom="@+id/textMaturation"
-        android:layout_toRightOf="@+id/textMaturation"
-        android:text=" "
-        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 
     <Button
         android:id="@+id/btn_q_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/btn_q_sub"
-        android:layout_marginRight="16dp"
-        android:layout_toLeftOf="@+id/btn_q_sub"
         android:text="Add"
-        android:onClick="addQuantity"/>
+        android:onClick="addQuantity"
+        android:layout_alignTop="@+id/year"
+        android:layout_alignLeft="@+id/btn_q_sub"
+        android:layout_alignStart="@+id/btn_q_sub" />
 
     <Button
         android:id="@+id/btn_q_sub"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        android:text="Sub"
+        android:layout_marginRight="57dp"
+        android:layout_marginEnd="57dp"
+        android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:text="Sub" />
+        android:layout_alignParentEnd="true" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="0"
 
-
-
-
-
-
-
+        android:id="@+id/quantity"
+        android:layout_toRightOf="@+id/btn_q_add"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/region"
+        android:layout_alignBottom="@+id/year"
+        android:gravity="fill_vertical|center_horizontal" />
 
 
 </RelativeLayout>

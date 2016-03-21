@@ -71,12 +71,6 @@ public class MainActivity extends Activity implements
 
     }
 
-
-
-
-
-
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -106,7 +100,7 @@ public class MainActivity extends Activity implements
                 R.id.year,
                 R.id.details,
                 R.id.maturation,
-                R.id.kind
+                //R.id.kind
 
         };
 

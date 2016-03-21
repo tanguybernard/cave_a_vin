@@ -25,7 +25,7 @@ public class WineEdit extends Activity implements View.OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.detail_page);
+        setContentView(R.layout.edit_page);
 
         // get the values passed to the activity from the calling activity
         // determine the mode - add, update or delete
