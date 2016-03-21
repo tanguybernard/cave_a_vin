@@ -1,6 +1,10 @@
 package istic.fr.cavevin;
 
 
+import android.content.ContentResolver;
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.CursorLoader;
@@ -46,11 +50,6 @@ public class MainActivity extends Activity implements
     }
 
     public void addQuantity(View v){
-        System.out.println("tototo vvvv");
-        RelativeLayout rl = (RelativeLayout)v.getParent();
-        TextView tv = (TextView)rl.findViewById(R.id.name);
-        String text = tv.getText().toString();
-        System.out.println(text);
 
         View parentRow = (View) v.getParent();
 
@@ -60,16 +59,93 @@ public class MainActivity extends Activity implements
 
         Cursor cursor = (Cursor) listView.getItemAtPosition(position);
 
-        // display the selected region
-        String regionName =
-                cursor.getString(cursor.getColumnIndexOrThrow(WinesDb.KEY_NAME));
+        String rowId =
+                cursor.getString(cursor.getColumnIndexOrThrow(WinesDb.KEY_ROWID));
 
+
+        /*String searchQuery = "column1 like '%" + searchKey
+                + "%' or column2 like '%" + searchKey + "%'";
+
+
+        ContentResolver c = getContentResolver().query(uri, null, searchQuery, null,
+                "date DESC");*/
+
+        String data = "_id = '%" + rowId + "%'";
+
+        Uri uri = Uri.parse(MyContentProvider.CONTENT_URI + "/" + rowId);
+
+
+        Cursor c = getContentResolver().query(uri, null, data, null,null);
+
+        Integer quantity =
+                cursor.getInt(c.getColumnIndexOrThrow(WinesDb.KEY_QUANTITY));
+
+
+        if(quantity!=null){
+            ContentValues values = new ContentValues();
+            values.put(WinesDb.KEY_QUANTITY, quantity + 1);
+
+            getContentResolver().update(uri, values, null, null);
+
+            View vv = listView.getChildAt(position);
+
+            TextView tt = (TextView)vv.findViewById(R.id.quantity);
+            tt.setText(Integer.toString(quantity + 1));
+
+        }
+
+
+    }
+
+    public void subQuantity(View v){
+
+        View parentRow = (View) v.getParent();
+
+        ListView listView = (ListView) parentRow.getParent();
+        final int position = listView.getPositionForView(parentRow);
+        System.out.println(position);
+
+        Cursor cursor = (Cursor) listView.getItemAtPosition(position);
 
         String rowId =
                 cursor.getString(cursor.getColumnIndexOrThrow(WinesDb.KEY_ROWID));
-        System.out.println(rowId);
+
+
+        /*String searchQuery = "column1 like '%" + searchKey
+                + "%' or column2 like '%" + searchKey + "%'";
+
+
+        ContentResolver c = getContentResolver().query(uri, null, searchQuery, null,
+                "date DESC");*/
+
+        String data = "_id = '%" + rowId + "%'";
+
+        Uri uri = Uri.parse(MyContentProvider.CONTENT_URI + "/" + rowId);
+
+
+        Cursor c = getContentResolver().query(uri, null, data, null,null);
+
+        Integer quantity =
+                cursor.getInt(c.getColumnIndexOrThrow(WinesDb.KEY_QUANTITY));
+
+
+        if(quantity!=null){
+            ContentValues values = new ContentValues();
+            values.put(WinesDb.KEY_QUANTITY, quantity - 1);
+
+            getContentResolver().update(uri, values, null, null);
+
+            View vv = listView.getChildAt(position);
+
+            TextView tt = (TextView)vv.findViewById(R.id.quantity);
+            tt.setText(Integer.toString(quantity - 1));
+
+        }
 
     }
+
+
+
 
     @Override
     protected void onResume() {
