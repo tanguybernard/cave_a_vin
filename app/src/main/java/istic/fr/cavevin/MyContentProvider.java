@@ -49,9 +49,9 @@ public class MyContentProvider extends ContentProvider {
 
         switch (uriMatcher.match(uri)) {
             case ALL_WINES:
-                return "vnd.android.cursor.dir/vnd.com.as400samplecode.contentprovider.countries";
+                return "vnd.android.cursor.dir/istic.fr.cavevin.contentprovider.countries";
             case SINGLE_WINE:
-                return "vnd.android.cursor.item/vnd.com.as400samplecode.contentprovider.countries";
+                return "vnd.android.cursor.item/istic.fr.cavevin.contentprovider.countries";
             default:
                 throw new IllegalArgumentException("Unsupported URI: " + uri);
         }

@@ -2,7 +2,13 @@
 <resources>
     <string-array name="region_array">
         <item>Alsace</item>
+        <item>Beaujolais</item>
+        <item>Champagne</item>
+        <item>Jura</item>
+        <item>Savoie</item>
+        <item>Bordelais</item>
+        <item>Provence</item>
         <item>Corse</item>
-
+        <item>Bourgogne</item>
     </string-array>
 </resources>

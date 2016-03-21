@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent" android:layout_height="wrap_content"
-    android:orientation="vertical" android:padding="6dip">
+    android:orientation="vertical" android:padding="6dip"
+    android:descendantFocusability="blocksDescendants"
+    >
 
 
 
@@ -92,6 +94,28 @@
         android:layout_toRightOf="@+id/textMaturation"
         android:text=" "
         android:textAppearance="?android:attr/textAppearanceMedium" />
+
+
+    <Button
+        android:id="@+id/btn_q_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btn_q_sub"
+        android:layout_marginRight="16dp"
+        android:layout_toLeftOf="@+id/btn_q_sub"
+        android:text="Add"
+        android:onClick="addQuantity"/>
+
+    <Button
+        android:id="@+id/btn_q_sub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentRight="true"
+        android:text="Sub" />
+
+
+
 
 
 

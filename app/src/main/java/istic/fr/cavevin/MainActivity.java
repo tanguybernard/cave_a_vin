@@ -7,14 +7,18 @@ import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.app.LoaderManager;
 
@@ -30,20 +34,48 @@ public class MainActivity extends Activity implements
 
         displayListView();
 
-        Button add = (Button) findViewById(R.id.add);
-        add.setOnClickListener(new OnClickListener() {
+    }
 
-            public void onClick(View v) {
-                // starts a new Intent to add a Country
-                Intent countryEdit = new Intent(getBaseContext(), WineEdit.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("mode", "add");
-                countryEdit.putExtras(bundle);
-                startActivity(countryEdit);
-            }
-        });
+
+    public void addWine(View v){
+        Intent regionEdit = new Intent(getBaseContext(), WineEdit.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("mode", "add");
+        regionEdit.putExtras(bundle);
+        startActivity(regionEdit);
+    }
+
+    public void addQuantity(View v){
+        System.out.println("tototo vvvv");
+        RelativeLayout rl = (RelativeLayout)v.getParent();
+        TextView tv = (TextView)rl.findViewById(R.id.name);
+        String text = tv.getText().toString();
+        System.out.println(text);
+
+        View parentRow = (View) v.getParent();
+
+        ListView listView = (ListView) parentRow.getParent();
+        final int position = listView.getPositionForView(parentRow);
+        System.out.println(position);
+
+        Cursor cursor = (Cursor) listView.getItemAtPosition(position);
+
+        // display the selected region
+        String regionName =
+                cursor.getString(cursor.getColumnIndexOrThrow(WinesDb.KEY_NAME));
+
+
+        String rowId =
+                cursor.getString(cursor.getColumnIndexOrThrow(WinesDb.KEY_ROWID));
+        System.out.println(rowId);
 
     }
+
+
+
+
+
+
 
     @Override
     protected void onResume() {
@@ -87,6 +119,9 @@ public class MainActivity extends Activity implements
                 to,
                 0);
 
+
+
+
         // get reference to the ListView
         ListView listView = (ListView) findViewById(R.id.wineList);
         // Assign adapter to ListView
@@ -95,30 +130,36 @@ public class MainActivity extends Activity implements
         getLoaderManager().initLoader(0, null, this);
 
 
+
+
         listView.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> listView, View view,
                                     int position, long id) {
+
+
+
+
                 // Get the cursor, positioned to the corresponding row in the result set
                 Cursor cursor = (Cursor) listView.getItemAtPosition(position);
 
-                // display the selected country
-                String countryCode =
+                // display the selected region
+                String regionName =
                         cursor.getString(cursor.getColumnIndexOrThrow(WinesDb.KEY_NAME));
                 Toast.makeText(getApplicationContext(),
-                        countryCode, Toast.LENGTH_SHORT).show();
+                        regionName, Toast.LENGTH_SHORT).show();
 
                 String rowId =
                         cursor.getString(cursor.getColumnIndexOrThrow(WinesDb.KEY_ROWID));
 
                 // starts a new Intent to update/delete a Wine
                 // pass in row Id to create the Content URI for a single row
-                Intent countryEdit = new Intent(getBaseContext(), WineEdit.class);
+                Intent regionEdit = new Intent(getBaseContext(), WineEdit.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("mode", "update");
                 bundle.putString("rowId", rowId);
-                countryEdit.putExtras(bundle);
-                startActivity(countryEdit);
+                regionEdit.putExtras(bundle);
+                startActivity(regionEdit);
 
             }
         });
