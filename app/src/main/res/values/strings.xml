@@ -11,4 +11,5 @@
     <string name="wine_maturation">Maturation</string>
     <string name="wine_kind">Type</string>
     <string name="wine_quantity">Quantité</string>
+    <string name="title_activity_maps">Map</string>
 </resources>
