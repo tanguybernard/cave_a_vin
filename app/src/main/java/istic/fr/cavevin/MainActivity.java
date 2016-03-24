@@ -146,7 +146,6 @@ public class MainActivity extends Activity implements
 
 
 
-
     @Override
     protected void onResume() {
         super.onResume();
