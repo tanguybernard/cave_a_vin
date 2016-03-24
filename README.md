@@ -1,6 +1,10 @@
-# Android TP3 #
+# Application cave à vin #
 
 **BERNARD Tanguy**
+**DUQUESNE Nicolas**
+**RAMAGE Romain**
+**ROPTIN Christophe**
+
 
 ### Objectif ###
 
