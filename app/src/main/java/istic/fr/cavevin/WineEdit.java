@@ -2,6 +2,7 @@ package istic.fr.cavevin;
 
 
 import android.app.Activity;
+import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.net.Uri;
@@ -10,7 +11,9 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class WineEdit extends Activity implements View.OnClickListener {
@@ -75,6 +78,41 @@ public class WineEdit extends Activity implements View.OnClickListener {
 
     }
 
+
+    public boolean wineAlreadyExist(View v,String name, String year){
+        View parentRow = (View) v.getParent();
+
+        ListView listView = (ListView) parentRow.getParent();
+
+
+
+
+        String searchQuery = "name =" + name
+                + " and year =" + year + "";
+
+
+
+
+        Uri uri = Uri.parse(MyContentProvider.CONTENT_URI+"");
+
+
+        Cursor c = getContentResolver().query(uri, null, searchQuery, null, null);
+
+        Cursor cr = getContentResolver().query(uri, null, searchQuery, null,"");
+
+        String result= String.valueOf(cr.getColumnIndex(WinesDb.KEY_NAME));
+
+        System.out.println(result);
+
+
+        if(result!=null){
+            return true;
+
+        }
+
+        return false;
+    }
+
     public void onClick(View v) {
 
         // get values from the spinner and the input text fields
@@ -99,6 +137,14 @@ public class WineEdit extends Activity implements View.OnClickListener {
             Toast.makeText(getBaseContext(), "ENTRER l'année du vin", Toast.LENGTH_LONG).show();
             return;
         }
+
+
+        // check for non existing wines
+        if(wineAlreadyExist(v,myName,myYear)){
+            Toast.makeText(getBaseContext(), "Le vin est déjà dans la base", Toast.LENGTH_LONG).show();
+            return;
+        }
+
 
 
 
