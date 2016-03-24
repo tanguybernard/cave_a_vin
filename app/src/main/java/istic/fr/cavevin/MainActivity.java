@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SimpleCursorAdapter;
@@ -160,6 +161,30 @@ public class MainActivity extends Activity implements
         String address = cursor.getString(cursor.getColumnIndexOrThrow(WinesDb.KEY_NAME));
         intent.putExtra(ADDRESS,address);
         startActivityForResult(intent, 0);
+    }
+
+    public void searchWine(View view){
+
+        EditText ed = (EditText) findViewById(R.id.fillWine);
+        String searchName = ed.getText().toString();
+
+
+        String searchQuery = "name like '%" + searchName + "%'";
+
+
+        Uri uri = Uri.parse(MyContentProvider.CONTENT_URI + "");
+
+
+
+        Cursor cursor = getContentResolver().query(uri, null, searchQuery, null, null);
+
+
+
+
+
+        dataAdapter.changeCursor(cursor);
+
+
     }
 
     @Override

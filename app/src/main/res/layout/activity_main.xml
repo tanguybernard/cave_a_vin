@@ -3,9 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Button android:id="@+id/btn_search" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:text="OK"
+        android:layout_alignParentTop="true" android:layout_alignParentRight="true"
+        android:onClick="searchWine"
+        />
+
+    <EditText android:id="@+id/fillWine" android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" android:layout_width="match_parent"
+        android:layout_toLeftOf="@+id/btn_search" android:hint="Recherche ...">
+    </EditText>
+
     <Button android:id="@+id/add" style="?android:attr/buttonStyleSmall"
         android:layout_width="fill_parent" android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true" android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/fillWine"
         android:onClick="addWine"
         android:text="@string/add_wine" />
 

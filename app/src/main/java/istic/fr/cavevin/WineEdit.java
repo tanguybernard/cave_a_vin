@@ -84,7 +84,7 @@ public class WineEdit extends Activity implements View.OnClickListener {
 
 
 
-        String searchQuery = "name ='"+name+"'";//+" and "+ "year ='" + year + "'";
+        String searchQuery = "name ='"+name+"'"+" and "+ "year ='" + year + "'";
 
 
 

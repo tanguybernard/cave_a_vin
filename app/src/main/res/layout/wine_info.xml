@@ -58,11 +58,11 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 
-    <Button android:layout_width="50dp"
+    <Button android:layout_width="70dp"
         android:layout_height="50dp"
         android:onClick="showMap"
         android:text="map"
-        android:layout_alignTop="@+id/btn_q_add"
+        android:layout_alignBottom="@+id/year"
         android:layout_toLeftOf="@+id/btn_q_add"
         android:layout_toStartOf="@+id/btn_q_add" />
 
