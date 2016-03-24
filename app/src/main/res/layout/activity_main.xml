@@ -27,7 +27,7 @@
         android:layout_height="wrap_content" android:layout_alignParentLeft="true"
         android:layout_below="@+id/add"
 
-        />
+        android:background="#35838080" />
 
 
 </RelativeLayout>
