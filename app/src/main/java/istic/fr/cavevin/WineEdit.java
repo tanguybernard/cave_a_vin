@@ -82,30 +82,31 @@ public class WineEdit extends Activity implements View.OnClickListener {
     public boolean wineAlreadyExist(View v,String name, String year){
         View parentRow = (View) v.getParent();
 
-        ListView listView = (ListView) parentRow.getParent();
+
+
+        String searchQuery = "name ='"+name+"'";//+" and "+ "year ='" + year + "'";
 
 
 
 
-        String searchQuery = "name =" + name
-                + " and year =" + year + "";
+        Uri uri = Uri.parse(MyContentProvider.CONTENT_URI + "");
+
+
+
+        Cursor cr = getContentResolver().query(uri, null, searchQuery, null, "");
+
+        String num=null;
+        if(cr != null && cr.moveToFirst()){
+            num = cr.getString(cr.getColumnIndex("year"));
+            System.out.println(num);
+        }
+        cr.close();
 
 
 
 
-        Uri uri = Uri.parse(MyContentProvider.CONTENT_URI+"");
 
-
-        Cursor c = getContentResolver().query(uri, null, searchQuery, null, null);
-
-        Cursor cr = getContentResolver().query(uri, null, searchQuery, null,"");
-
-        String result= String.valueOf(cr.getColumnIndex(WinesDb.KEY_NAME));
-
-        System.out.println(result);
-
-
-        if(result!=null){
+        if(num!=null){
             return true;
 
         }
@@ -138,11 +139,14 @@ public class WineEdit extends Activity implements View.OnClickListener {
             return;
         }
 
+        System.out.println(mode);
 
         // check for non existing wines
         if(wineAlreadyExist(v,myName,myYear)){
-            Toast.makeText(getBaseContext(), "Le vin est déjà dans la base", Toast.LENGTH_LONG).show();
-            return;
+            if(!mode.trim().equalsIgnoreCase("update")) {
+                Toast.makeText(getBaseContext(), "Le vin est déjà dans la base", Toast.LENGTH_LONG).show();
+                return;
+            }
         }
 
 
