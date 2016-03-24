@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:text="Nom: "
+        android:textColor="#f000"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 
@@ -20,6 +21,8 @@
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/textName"
         android:text=" "
+        android:textColor="#0041c4"
+        android:textStyle="bold|italic"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView android:id="@+id/textRegion"
@@ -28,6 +31,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textName"
         android:text="Region: "
+        android:textColor="#f000"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView android:id="@+id/region"
@@ -37,6 +41,9 @@
         android:layout_alignBottom="@+id/textRegion"
         android:layout_toRightOf="@+id/textRegion"
         android:text=" "
+        android:textStyle="bold"
+        android:textColor="#2e224c"
+
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 
@@ -46,6 +53,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textRegion"
         android:text="Année: "
+        android:textColor="#f000"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView android:id="@+id/year"
@@ -55,6 +63,7 @@
         android:layout_alignBottom="@+id/textYear"
         android:layout_toRightOf="@+id/textYear"
         android:text=" "
+        android:textColor="#f000"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 
@@ -94,7 +103,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="0"
-
+        android:textColor="#5f00c3"
         android:id="@+id/quantity"
         android:layout_toRightOf="@+id/btn_q_add"
         android:layout_alignParentRight="true"
