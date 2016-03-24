@@ -29,7 +29,10 @@ import android.app.LoaderManager;
 public class MainActivity extends Activity implements
         LoaderManager.LoaderCallbacks<Cursor>{
 
+    public static final String ADDRESS = "address";
+
     private SimpleCursorAdapter dataAdapter;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -145,6 +148,19 @@ public class MainActivity extends Activity implements
     }
 
 
+    public void showMap(View v){
+        Intent intent = new Intent(this,MapsActivity.class);
+        View parentRow = (View) v.getParent();
+
+        ListView listView = (ListView) parentRow.getParent();
+        final int position = listView.getPositionForView(parentRow);
+        System.out.println(position);
+
+        Cursor cursor = (Cursor) listView.getItemAtPosition(position);
+        String address = cursor.getString(cursor.getColumnIndexOrThrow(WinesDb.KEY_NAME));
+        intent.putExtra(ADDRESS,address);
+        startActivityForResult(intent, 0);
+    }
 
     @Override
     protected void onResume() {

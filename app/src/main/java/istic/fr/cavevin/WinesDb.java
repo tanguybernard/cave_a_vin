@@ -32,6 +32,7 @@ public class WinesDb {
                     KEY_KIND  +
                     ");";
 
+
     public static void onCreate(SQLiteDatabase db) {
         Log.w(LOG_TAG, DATABASE_CREATE);
         db.execSQL(DATABASE_CREATE);
