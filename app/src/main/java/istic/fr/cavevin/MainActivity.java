@@ -136,7 +136,7 @@ public class MainActivity extends Activity implements
 
                     quantity = cursor.getInt(c.getColumnIndexOrThrow(WinesDb.KEY_QUANTITY));
 
-
+        System.out.println(quantity);
 
         if(quantity!=null && quantity>0){
             ContentValues values = new ContentValues();

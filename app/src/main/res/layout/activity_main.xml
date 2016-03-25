@@ -15,6 +15,7 @@
         android:layout_alignParentTop="true" android:layout_width="match_parent"
         android:layout_toLeftOf="@+id/btn_search" android:hint="Recherche ..."
         android:textColorHint="#fff"
+        android:textColor="#fff"
         >
     </EditText>
 
