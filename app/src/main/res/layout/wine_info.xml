@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:text="Nom: "
-        android:textColor="#f000"
+        android:textColor="#fff"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 
@@ -31,7 +31,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textName"
         android:text="Region: "
-        android:textColor="#f000"
+        android:textColor="#fff"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView android:id="@+id/region"
@@ -53,7 +53,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textRegion"
         android:text="Année: "
-        android:textColor="#f000"
+        android:textColor="#fff"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView android:id="@+id/year"
@@ -63,7 +63,7 @@
         android:layout_alignBottom="@+id/textYear"
         android:layout_toRightOf="@+id/textYear"
         android:text=" "
-        android:textColor="#f000"
+        android:textColor="#fff"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 

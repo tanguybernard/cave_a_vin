@@ -83,6 +83,7 @@ public class WineEdit extends Activity implements View.OnClickListener {
         View parentRow = (View) v.getParent();
 
 
+        name = name.replace("'","''");
 
         String searchQuery = "name ='"+name+"'"+" and "+ "year ='" + year + "'";
 
@@ -137,6 +138,10 @@ public class WineEdit extends Activity implements View.OnClickListener {
         if(myYear.trim().equalsIgnoreCase("")){
             Toast.makeText(getBaseContext(), "ENTRER l'année du vin", Toast.LENGTH_LONG).show();
             return;
+        }
+
+        if(myQuantity.trim().equalsIgnoreCase("")){
+            myQuantity="0";
         }
 
         System.out.println(mode);

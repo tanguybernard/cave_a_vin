@@ -45,6 +45,10 @@ public class MainActivity extends Activity implements
     }
 
 
+    /**
+     * Add wine to an other activity
+     * @param v
+     */
     public void addWine(View v){
         Intent regionEdit = new Intent(getBaseContext(), WineEdit.class);
         Bundle bundle = new Bundle();
@@ -53,6 +57,10 @@ public class MainActivity extends Activity implements
         startActivity(regionEdit);
     }
 
+    /**
+     * Increase quantity of wine
+     * @param v
+     */
     public void addQuantity(View v){
 
         View parentRow = (View) v.getParent();
@@ -66,13 +74,6 @@ public class MainActivity extends Activity implements
         String rowId =
                 cursor.getString(cursor.getColumnIndexOrThrow(WinesDb.KEY_ROWID));
 
-
-        /*String searchQuery = "column1 like '%" + searchKey
-                + "%' or column2 like '%" + searchKey + "%'";
-
-
-        ContentResolver c = getContentResolver().query(uri, null, searchQuery, null,
-                "date DESC");*/
 
         String data = "_id = '%" + rowId + "%'";
 
@@ -93,14 +94,21 @@ public class MainActivity extends Activity implements
 
             View vv = listView.getChildAt(position);
 
+
             TextView tt = (TextView)vv.findViewById(R.id.quantity);
+
             tt.setText(Integer.toString(quantity + 1));
+
 
         }
 
 
     }
 
+    /**
+     * Decrease quantity of wine
+     * @param v
+     */
     public void subQuantity(View v){
 
         View parentRow = (View) v.getParent();
@@ -115,25 +123,22 @@ public class MainActivity extends Activity implements
                 cursor.getString(cursor.getColumnIndexOrThrow(WinesDb.KEY_ROWID));
 
 
-        /*String searchQuery = "column1 like '%" + searchKey
-                + "%' or column2 like '%" + searchKey + "%'";
-
-
-        ContentResolver c = getContentResolver().query(uri, null, searchQuery, null,
-                "date DESC");*/
-
         String data = "_id = '%" + rowId + "%'";
 
         Uri uri = Uri.parse(MyContentProvider.CONTENT_URI + "/" + rowId);
 
 
-        Cursor c = getContentResolver().query(uri, null, data, null,null);
-
-        Integer quantity =
-                cursor.getInt(c.getColumnIndexOrThrow(WinesDb.KEY_QUANTITY));
+        Cursor c = getContentResolver().query(uri, null, data, null, null);
 
 
-        if(quantity!=null){
+        Integer quantity =null;
+
+
+                    quantity = cursor.getInt(c.getColumnIndexOrThrow(WinesDb.KEY_QUANTITY));
+
+
+
+        if(quantity!=null && quantity>0){
             ContentValues values = new ContentValues();
             values.put(WinesDb.KEY_QUANTITY, quantity - 1);
 
@@ -149,6 +154,10 @@ public class MainActivity extends Activity implements
     }
 
 
+    /**
+     * Display map location
+     * @param v
+     */
     public void showMap(View v){
         Intent intent = new Intent(this,MapsActivity.class);
         View parentRow = (View) v.getParent();
@@ -177,8 +186,6 @@ public class MainActivity extends Activity implements
 
 
         Cursor cursor = getContentResolver().query(uri, null, searchQuery, null, null);
-
-
 
 
 
